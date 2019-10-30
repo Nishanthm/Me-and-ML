@@ -1,0 +1,38 @@
+Column and Row Insertion,Selection,Addition and Deletion:
+
+import pandas as pd 
+
+#Col Insertion
+data = {'Name':['Jai', 'Princi', 'Gaurav', 'Anuj'], 
+        'Age':[27, 24, 22, 32], 
+        'Address':['Delhi', 'Kanpur', 'Allahabad', 'Kannauj'], 
+        'Qualification':['Msc', 'MA', 'MCA', 'Phd']} 
+ 
+#Col Selection
+df = pd.DataFrame(data) 
+print(df[['Name', 'Qualification']]) 
+print(df['Age']) 
+
+#Col Addition or Updation
+address = ['Delhi', 'Bangalore', 'Chennai', 'Patna'] 
+df['Address'] = address 
+
+#Col Deletion
+df.drop(['Age'],axis = 1, inplace = True)
+  
+data = pd.read_csv("nba.csv", index_col ="Name") 
+
+#Row Selection
+first = data.loc["Avery Bradley"] 
+second = data.loc["R.J. Hunter"]
+
+#Row Addition
+new_row = pd.DataFrame({'Name':'Geeks', 'Team':'Boston', 'Number':3, 
+                        'Position':'PG', 'Age':33, 'Height':'6-2', 
+                        'Weight':189, 'College':'MIT', 'Salary':99999}, 
+                                                            index =[0]) 
+df = pd.concat([new_row, df]).reset_index(drop = True) 
+
+#Row Deletion
+data.drop(["Avery Bradley", "John Holland", "R.J. Hunter", 
+                            "R.J. Hunter"], inplace = True) 
