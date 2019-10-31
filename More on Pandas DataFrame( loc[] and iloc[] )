@@ -1,0 +1,69 @@
+#Creating a dataframe using List:
+
+import pandas as pd
+
+lst = ['Geeks', 'For', 'Geeks', 'is', 
+            'portal', 'for', 'Geeks']
+ 
+df = pd.DataFrame(lst)
+print(df)
+
+
+
+#Creating DataFrame from dict of ndarray/lists: 
+
+import pandas as pd
+
+data = {'Name':['Tom', 'nick', 'krish', 'jack'],
+        'Age':[20, 21, 19, 18]}
+ 
+df = pd.DataFrame(data)
+print(df)
+
+
+
+#Selecting multiple columns
+
+import pandas as pd 
+
+data = pd.read_csv("nba.csv", index_col ="Name") 
+  
+first = data[["Age", "College", "Salary"]]
+
+
+
+#Selecting multiple rows with all columns and some columns with "loc"
+
+import pandas as pd 
+  
+data = pd.read_csv("nba.csv", index_col ="Name") 
+  
+first = data.loc[["Avery Bradley", "R.J. Hunter"]] #Some rows and all columns
+
+first = data.loc[["Avery Bradley", "R.J. Hunter"], #Some rows and som columns
+                   ["Team", "Number", "Position"]] 
+                   
+first = data.loc[:, ["Team", "Number", "Position"]] #All rows and some columns
+
+                    
+
+#Selecting a single row using iloc[] function:
+
+import pandas as pd
+
+data = pd.read_csv("nba.csv", index_col ="Name")
+
+row2 = data.iloc[3] 
+
+
+
+#Selecting multiple rows using iloc[] function:
+
+import pandas as pd 
+  
+data = pd.read_csv("nba.csv", index_col ="Name") 
+
+row2 = data.iloc [[3, 5, 7]] #Multiple rows and all cols
+row2 = data.iloc [[3, 4], [1, 2]] #Multiple rows and some cols
+
+
