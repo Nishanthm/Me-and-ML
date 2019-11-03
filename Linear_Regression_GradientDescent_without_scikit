@@ -1,0 +1,25 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+data=pd.read_csv("D:\\Nishanth\\NN and DL\\train.csv")
+x=data["GrLivArea"]
+y=data["SalePrice"]
+m=y.size
+x=(x-x.mean())/x.std()
+x = np.c_[np.ones(x.shape[0]), x] 
+theta=np.random.rand(2)
+alpha=0.01
+iterations=2000
+past_costs = []
+past_thetas = [theta]
+for i in range(iterations):
+    pred=np.dot(x,theta)
+    err=pred-y
+    cost=1/(2*m)*np.dot(err.T,err)
+    theta=theta-(alpha*(1/m)*np.dot(x.T,err))
+    past_costs.append(cost)
+    past_thetas.append(theta)
+theta=past_thetas[-1]
+line=np.dot(x,theta)
+plt.plot(x[:,1],line,c='r')
+plt.scatter(x[:,1],y)
