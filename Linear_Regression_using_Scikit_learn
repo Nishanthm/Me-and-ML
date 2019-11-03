@@ -1,0 +1,16 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score,mean_squared_error
+
+data=pd.read_csv("D:\\Nishanth\\NN and DL\\train.csv")
+x=np.array(data["GrLivArea"]).reshape(len(data["GrLivArea"]),1)
+y=np.array(data["SalePrice"]).reshape(len(data["SalePrice"]),1)
+
+model=LinearRegression()
+model.fit(x,y)
+pred=model.predict(x)
+
+plt.scatter(x[:,0],y)
+plt.plot(x,pred,c='r')
