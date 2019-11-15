@@ -1,0 +1,24 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+data=pd.read_csv('D:\\Nishanth\\NN and DL\\headbrain.csv')
+x=data.iloc[:,2]
+y=data.iloc[:,3]
+
+mean_x=np.mean(x)
+mean_y=np.mean(y)
+
+x_t=x-mean_x
+y_t=y-mean_y
+
+num=np.dot(x_t.T,y_t)
+m=num/np.sum(np.square(x_t))
+c=mean_y-(m*mean_x)
+line=m*x+c
+
+plt.plot(x,line)
+plt.scatter(x,y,c='r')
+
+n=len(x)
+rmse=np.sqrt(np.sum(np.square(line-y))/n)
