@@ -1,0 +1,12 @@
+import pandas as pd
+import numpy as np
+
+a=np.array([[1,1,1,0,0],[3,3,3,0,0],[4,4,4,0,0],[5,5,5,0,0],[0,2,0,4,4],[0,0,0,5,5],[0,1,0,2,2]])
+
+u,s,v=np.linalg.svd(a)
+
+sigma=np.diagflat(s)
+n_u=u[:,0:5]
+
+reconstruct=np.dot(n_u,np.dot(sigma,v.T))
+print(reconstruct)
