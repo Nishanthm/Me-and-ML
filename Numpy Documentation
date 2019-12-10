@@ -1,0 +1,60 @@
+->What is Numpy ?
+a) NumPy is a Python package which stands for ‘Numerical Python’. 
+b) It is the core library for scientific computing, which contains a powerful n-dimensional array object. 
+c)NumPy array can also be used as an efficient multi-dimensional container for generic data.
+
+->How to Import a numpy package?
+Code: import numpy as np
+
+->How to create an empty numpy array filled with zeros?
+Code: 
+           X = np.zeros((3,2),float)
+           Y= np.zeros_like(X)
+           
+->How to create a 3-D array with ones on the diagonal and zeros elsewhere?
+Code: np.eye(3)
+The matrix created will be 
+  array([[ 1.,  0.,  0.],
+       [ 0.,  1.,  0.],
+       [ 0.,  0.,  1.]])
+
+->How to create a numpy array from a python list?
+Code: x=np.array([1, 2, 3])
+
+->How to create an integer numpy array into float?
+Code: x = [1, 2]
+      y=np.asfarray(x)
+
+->How to create a numpy ndarray with numbers spaced with
+equal spacing within the given range?
+Code: x=np.arange(start,end,step)
+
+->How to reshape a numpy array into desired shape?
+Code: x=np.arange(6)
+      x.shape=(3,2)
+
+->How to create a 1-D array of 50 evenly spaced elements between 3. and 10., inclusive?
+Code: np.linspace(3., 10, 50)
+
+->How to get the diagonal elements of a matrix
+Code: y=np.diag(X)
+
+->How to create a 2-D array whose diagonal equals [1, 2, 3, 4] and 0's elsewhere.
+Code: np.diagflat([1, 2, 3, 4])
+
+->How to reshape a numpy array?
+Code: 
+           x = np.ones([10, 10, 3])
+           out = np.reshape(x, [-1, 150])
+
+->Dot product of two matrices
+Code: 
+           x = [1,2]
+           y = [[4, 1], [2, 2]]
+           print np.dot(x, y)
+           
+->How to find eigenvalues and eigenvectors of a matrix using numpy?
+Code:
+x = np.diag((1, 2, 3))
+eigenvals = np.linalg.eig(x)[0]
+eigenvecs = np.linalg.eig(x)[1]
