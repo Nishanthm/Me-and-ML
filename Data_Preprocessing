@@ -24,6 +24,17 @@ X = onehotencoder.fit_transform(X).toarray()
 labelencoder_Y = LabelEncoder()
 Y =  labelencoder_Y.fit_transform(Y)
 
+#In scikit version 0.22 (Latest)
+from sklearn.preprocessing import LabelEncoder
+le=LabelEncoder()
+x[:,3]=le.fit_transform(x[:,3])
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer,make_column_transformer
+preprocess = make_column_transformer(
+    (OneHotEncoder(categories='auto'), [3]), 
+    remainder="passthrough")
+x = preprocess.fit_transform(x)
+
 #Step 5: Splitting the datasets into training sets and Test sets
 from sklearn.cross_validation import train_test_split
 X_train, X_test, Y_train, Y_test = train_test_split( X , Y , test_size = 0.2, random_state = 0)
